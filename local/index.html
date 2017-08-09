@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="canvas-wrap"></div>
+<div class="canvas-wrap2"></div>
+
+
+<div class="playBtn">开始</div>
+<div class="pauseBtn">暂停</div>
+<div class="stopBtn">停止</div>
+
+
+<script type="text/javascript" src="zepto.js"></script>
+<script type="text/javascript" src="loopImgCanvas.js"></script>
+<script type="text/javascript">
+    //切记图片命名规则，1.png的下一张图应该是11.png，而不是2.png，所以正确顺序1.png应该改成01.png才对
+    //图片输出用fis的__resload即可
+    var img_list1 = ['data/bz/eff_04_00000.png','data/bz/eff_04_00001.png','data/bz/eff_04_00002.png','data/bz/eff_04_00003.png','data/bz/eff_04_00004.png','data/bz/eff_04_00005.png','data/bz/eff_04_00006.png','data/bz/eff_04_00007.png','data/bz/eff_04_00008.png','data/bz/eff_04_00009.png'];
+    var img_list2 = ["data/zhz_ani/zhaohuanzhen_00000.jpg", "data/zhz_ani/zhaohuanzhen_00001.jpg", "data/zhz_ani/zhaohuanzhen_00002.jpg", "data/zhz_ani/zhaohuanzhen_00003.jpg", "data/zhz_ani/zhaohuanzhen_00004.jpg", "data/zhz_ani/zhaohuanzhen_00005.jpg", "data/zhz_ani/zhaohuanzhen_00006.jpg", "data/zhz_ani/zhaohuanzhen_00007.jpg", "data/zhz_ani/zhaohuanzhen_00008.jpg", "data/zhz_ani/zhaohuanzhen_00009.jpg", "data/zhz_ani/zhaohuanzhen_00010.jpg", "data/zhz_ani/zhaohuanzhen_00011.jpg", "data/zhz_ani/zhaohuanzhen_00012.jpg", "data/zhz_ani/zhaohuanzhen_00013.jpg", "data/zhz_ani/zhaohuanzhen_00014.jpg", "data/zhz_ani/zhaohuanzhen_00015.jpg", "data/zhz_ani/zhaohuanzhen_00016.jpg", "data/zhz_ani/zhaohuanzhen_00017.jpg", "data/zhz_ani/zhaohuanzhen_00018.jpg", "data/zhz_ani/zhaohuanzhen_00019.jpg", "data/zhz_ani/zhaohuanzhen_00020.jpg", "data/zhz_ani/zhaohuanzhen_00021.jpg", "data/zhz_ani/zhaohuanzhen_00022.jpg", "data/zhz_ani/zhaohuanzhen_00023.jpg", "data/zhz_ani/zhaohuanzhen_00024.jpg", "data/zhz_ani/zhaohuanzhen_00025.jpg", "data/zhz_ani/zhaohuanzhen_00026.jpg", "data/zhz_ani/zhaohuanzhen_00027.jpg", "data/zhz_ani/zhaohuanzhen_00028.jpg", "data/zhz_ani/zhaohuanzhen_00029.jpg", "data/zhz_ani/zhaohuanzhen_00030.jpg", "data/zhz_ani/zhaohuanzhen_00031.jpg", "data/zhz_ani/zhaohuanzhen_00032.jpg", "data/zhz_ani/zhaohuanzhen_00033.jpg", "data/zhz_ani/zhaohuanzhen_00034.jpg", "data/zhz_ani/zhaohuanzhen_00035.jpg", "data/zhz_ani/zhaohuanzhen_00036.jpg", "data/zhz_ani/zhaohuanzhen_00037.jpg", "data/zhz_ani/zhaohuanzhen_00038.jpg", "data/zhz_ani/zhaohuanzhen_00039.jpg", "data/zhz_ani/zhaohuanzhen_00040.jpg", "data/zhz_ani/zhaohuanzhen_00041.jpg", "data/zhz_ani/zhaohuanzhen_00042.jpg", "data/zhz_ani/zhaohuanzhen_00043.jpg", "data/zhz_ani/zhaohuanzhen_00044.jpg", "data/zhz_ani/zhaohuanzhen_00045.jpg"];
+
+    //调用
+    var adV = loopImgCanvas.create({//创建实例1
+        parent:'.canvas-wrap',
+        imgarr:img_list1
+    });
+
+    //调用
+    var adV2 = loopImgCanvas.create({//创建实例2
+        parent:'.canvas-wrap2', //父容器
+        imgarr:img_list2, //图片组
+        msPerFrame:16, //控制时间
+        auto : true, //自动播放
+        loop:false //循环播放
+    });
+
+    //提供三个方法，play,pause,stop
+    $('.playBtn').on('click',function(){
+        adV.play();
+    });
+    $('.pauseBtn').on('click',function(){
+        adV.pause();
+    });
+    $('.stopBtn').on('click',function(){
+        adV.stop();
+    });
+
+</script>
+</body>
+</html>
